@@ -37,40 +37,46 @@
     </section>
 
     <section class="col">
-      <h2>/ selected work</h2>
-      <ul class="candy">
-        <li>
-          <h3>Real-time streaming platform</h3>
-          <p>Spark Structured Streaming on Kafka, built to meet strict uptime and latency targets while processing more than 5 million events a day.</p>
-        </li>
-        <li>
-          <h3>Analytics data lake on AWS</h3>
-          <p>Parquet storage on S3 feeding Snowflake. Tuning partitioning, queries and caching improved analytics performance by 30% and cut latency by 25%.</p>
-        </li>
-        <li>
-          <h3>Healthcare event integration</h3>
-          <p>Kafka and Confluent Cloud pipelines with Spring Boot services that retry, recover and keep moving, handling more than a million messages in production.</p>
-        </li>
-      </ul>
-    </section>
-
-    <section class="col">
       <h2>/ where I've worked</h2>
       <ol class="timeline">
         <li>
           <h3>Data Engineer II, Cotiviti</h3>
           <p class="when">November 2024 to now</p>
-          <p>Streaming systems, FHIR and HL7 ingestion APIs, and the AWS data lake behind analytics. Services run in Docker on Kubernetes, which cut deployment time by 40%.</p>
+          <ul>
+            <li>Building an LLM-powered FHIR query assistant: GPT-4 with function calling and embeddings turns a vague, free-text question into structured FHIR queries and returns the relevant records.</li>
+            <li>Built an XGBoost classifier that flags upcoded radiation oncology claims: 0.81 weighted F1 on about 260K evaluated claims, with an estimated $9.8M annual business impact.</li>
+            <li>Built a pipeline that turns production-issue emails into training data, fine-tunes BERT to classify the issue, and emails prod ops the likely root cause.</li>
+            <li>Own the healthcare claims pipeline: daily Spark jobs pull fields from XML claims into databases, with 1,000+ SFTP transfers a day automated through Axway.</li>
+            <li>Built 100+ bronze, silver and gold Kafka pipelines serving 10+ teams as reusable data products. Kafka and Flink pipelines process 5M+ real-time API transactions a day.</li>
+            <li>Tuned Snowflake and S3/Parquet for 30% faster analytics and 25% lower latency, and helped migrate Spark to Dataproc and 50+ Airflow DAGs to Cloud Composer.</li>
+            <li>Wrote 50,000+ JUnit and Groovy (Spock) tests at 98% coverage, and deploy Docker containers to OpenShift with Terraform and Jenkins, cutting deployment cycles by 40%.</li>
+            <li>Cut issue resolution time by 20% with root-cause analysis and ELK monitoring, and mentored 3 junior engineers.</li>
+            <li>Look after the Drools rules engine at the heart of claims adjudication.</li>
+          </ul>
         </li>
         <li>
           <h3>Data Integration Engineer, Highmark Health</h3>
           <p class="when">September 2022 to September 2024</p>
-          <p>ETL and ELT pipelines on Kafka and Spark, plus Java Spring Boot services. CI/CD automation shortened release cycles by 40%.</p>
+          <ul>
+            <li>Led the Highmark Data Exchange: parsed HL7 FHIR JSON from client systems and mapped it to database structures under strict HIPAA compliance, onboarding 50+ healthcare clients.</li>
+            <li>Architected a secure lab (LIMS) integration layer with REST APIs and Kafka queues, ingesting lab results into database tables.</li>
+            <li>Built Java Spring Boot microservices on Confluent Kafka with retry policies and dead-letter queues, handling 1M+ messages a day. Splunk and Dynatrace cut incident resolution time by 25%.</li>
+            <li>Optimized 20+ Oracle SQL queries and data models (40% faster) and automated CI/CD with UrbanCode and GitLab (30% shorter releases).</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Software Engineer Intern, Highmark Health</h3>
+          <p class="when">June to August 2022</p>
+          <ul>
+            <li>Implemented 120+ Kafka Connect sink connectors loading 2M+ records a day into databases, and validated millions of records with Splunk and Toad.</li>
+          </ul>
         </li>
         <li>
           <h3>Associate Software Engineer, Accenture</h3>
           <p class="when">December 2020 to July 2021</p>
-          <p>Ab Initio pipelines for an enterprise data warehouse, with batch processing performance up 40%.</p>
+          <ul>
+            <li>Built Ab Initio and SQL pipelines for data warehouse reporting (40% faster batches) and raised 20+ IBM change requests for production deployments.</li>
+          </ul>
         </li>
       </ol>
     </section>
@@ -78,11 +84,11 @@
     <section class="col">
       <h2>/ tools I use</h2>
       <ul class="candy compact">
-        <li><b>Languages</b> Python, Java, C and C++, SQL</li>
-        <li><b>Streaming and ETL</b> Kafka, Spark, Confluent Cloud, data modeling</li>
-        <li><b>Storage</b> S3 data lakes, Parquet, Snowflake, Oracle, MySQL</li>
-        <li><b>Cloud and delivery</b> AWS, GCP Pub/Sub, Docker, Kubernetes, CI/CD</li>
-        <li><b>Practice</b> Event-driven design, distributed systems, observability</li>
+        <li><b>Languages</b> Python, Java, SQL, C and C++</li>
+        <li><b>ML and AI</b> XGBoost, BERT, scikit-learn, TensorFlow, OpenAI GPT-4, Claude Code</li>
+        <li><b>Data and streaming</b> Kafka, Flink, Spark, Airflow, Snowflake, Parquet</li>
+        <li><b>Cloud and delivery</b> AWS, Google Cloud, Docker, Kubernetes and OpenShift, Terraform, Jenkins</li>
+        <li><b>Healthcare data</b> HL7 FHIR, claims, LIMS, HIPAA</li>
       </ul>
     </section>
 
