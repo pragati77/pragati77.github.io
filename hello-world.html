@@ -3,34 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello, world | Pragati Mynampati</title>
+  <title>Why I'm writing this down | Pragati Mynampati</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Literata:opsz,wght@7..72,400..700&display=swap">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <header class="site">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="../index.html">Pragati Mynampati</a>
-      <nav>
+      <a class="wordmark" href="../index.html">Pragati Mynampati</a>
+      <nav class="site-nav" aria-label="Main">
         <a href="../index.html">Home</a>
-        <a href="../projects.html">Projects</a>
-        <a class="active" href="../blog.html">Blog</a>
+        <a href="../projects.html">Work</a>
+        <a href="../blog.html" aria-current="page">Writing</a>
         <a href="../resume.html">Resume</a>
       </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <h1>Hello, world</h1>
-    <div class="meta">October 31, 2026</div>
+  <main id="main" class="wrap">
+    <article class="post">
+      <h1 class="page-title">Why I'm writing this down</h1>
+      <p class="when">October 31, 2026</p>
 
-    <p>This is my first post. I set up this site to keep my projects, writing and resume in one place.</p>
-    <p>[Replace this with your own text. To add a new post, copy this file, rename it, edit the content, and add a card for it on blog.html and the home page.]</p>
+      <p>Most of my work happens where nobody sees it. A pipeline that does its job is one nobody talks about, so the lessons stay in my head.</p>
+      <p>This is where I'll write them down: what broke, what I changed, and what I'd do differently. Expect notes on Kafka, Spark, data lakes and the odd realities of healthcare data.</p>
+      <p>[Replace this post with your own. To add another, copy this file, rename it, edit the text, and add an entry to blog.html.]</p>
 
-    <p><a href="../blog.html">&larr; Back to all posts</a></p>
+      <p><a href="../blog.html">Back to all posts</a></p>
+    </article>
   </main>
 
-  <footer class="site">
-    <div class="wrap">&copy; 2026 Pragati Mynampati</div>
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>&copy; 2026 Pragati Mynampati</span>
+      <span>Dallas, Texas</span>
+    </div>
   </footer>
 </body>
 </html>
