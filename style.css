@@ -1,0 +1,71 @@
+:root {
+  --bg: #fbfaf7;
+  --fg: #1f2328;
+  --muted: #6b7280;
+  --accent: #3b5bdb;
+  --card: #ffffff;
+  --border: #e5e2da;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14161a;
+    --fg: #e8e6e1;
+    --muted: #9aa0a6;
+    --accent: #8ea2ff;
+    --card: #1c1f24;
+    --border: #2c3036;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 17px/1.65 Georgia, "Times New Roman", serif;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 22px; }
+header.site {
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+}
+header.site .wrap {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 10px;
+}
+header.site .brand { font-weight: bold; color: var(--fg); font-size: 1.05rem; }
+nav a {
+  margin-left: 18px;
+  font-family: system-ui, sans-serif;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+nav a.active, nav a:hover { color: var(--accent); text-decoration: none; }
+main { padding: 44px 0 64px; }
+h1 { font-size: 2.2rem; line-height: 1.2; margin: 0 0 10px; }
+h2 { font-size: 1.35rem; margin: 42px 0 12px; }
+h3 { font-size: 1.1rem; margin: 0 0 4px; }
+.lead { font-size: 1.15rem; color: var(--muted); margin-bottom: 26px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.card p { margin: 6px 0 0; }
+.meta { font-family: system-ui, sans-serif; font-size: 0.85rem; color: var(--muted); }
+.tags span {
+  display: inline-block; font-family: system-ui, sans-serif; font-size: 0.75rem;
+  border: 1px solid var(--border); border-radius: 999px; padding: 1px 9px;
+  margin: 8px 6px 0 0; color: var(--muted);
+}
+.links a { margin-right: 16px; font-family: system-ui, sans-serif; font-size: 0.95rem; }
+.job { margin-bottom: 22px; }
+.job .meta { margin-bottom: 4px; }
+ul { padding-left: 22px; margin: 6px 0; }
+footer.site {
+  border-top: 1px solid var(--border); padding: 22px 0;
+  font-family: system-ui, sans-serif; font-size: 0.85rem; color: var(--muted);
+}
