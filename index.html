@@ -5,130 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pragati Mynampati, data engineer</title>
   <meta name="description" content="Pragati Mynampati is a data engineer in Dallas who builds streaming systems and data pipelines for healthcare analytics, using Kafka, Spark and AWS.">
-  <meta name="theme-color" content="#10242f">
+  <meta name="theme-color" content="#ff7ab0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Literata:opsz,wght@7..72,400..700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Nunito:wght@400..800&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-
-  <header class="site-header">
-    <div class="wrap">
-      <a class="wordmark" href="index.html">Pragati Mynampati</a>
-      <nav class="site-nav" aria-label="Main">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="projects.html">Work</a>
-        <a href="blog.html">Writing</a>
-        <a href="resume.html">Resume</a>
-      </nav>
-    </div>
+  <header class="hero col">
+    <h1>hi, Pragati here.</h1>
+    <p class="pitch">Data engineer in Dallas. I build the pipelines that carry healthcare data: five years of Kafka, Spark and AWS, designed to keep running without anyone having to think about them.</p>
   </header>
 
-  <div class="hero">
-    <div class="wrap">
-      <h1>Pragati Mynampati</h1>
-      <p class="pitch">I build the pipelines that carry healthcare data. Five years of Kafka, Spark and AWS, designed to keep running without anyone having to think about them.</p>
-    </div>
+  <div class="tray col">
+    <div class="panel"><canvas id="stream" aria-hidden="true"></canvas></div>
+    <p class="ticker">At 5 million events a day, that's <strong id="count">0</strong><span id="count-note"> events since you opened this page.</span></p>
   </div>
 
-  <div class="stream">
-    <canvas id="stream" aria-hidden="true"></canvas>
-    <div class="wrap">
-      <p class="ticker">At 5 million events a day, that's <strong id="count">0</strong><span id="count-note"> events since you opened this page.</span></p>
-    </div>
-  </div>
+  <div class="sprinkles" aria-hidden="true"></div>
 
-  <main id="main">
-    <section class="wrap">
-      <div class="split">
-        <h2>Right now</h2>
-        <div class="prose">
-          <p>I'm a Data Engineer II at Cotiviti. I run the streaming systems that handle more than 5 million events a day, and the APIs that bring FHIR and HL7 clinical data into them.</p>
-          <p>Before that I built event-driven integrations at Highmark Health, and batch pipelines at Accenture. I have an M.S. in Computer Science from UMBC and live in Dallas, Texas.</p>
-        </div>
+  <main>
+    <section class="col">
+      <h2>/ right now</h2>
+      <div class="prose">
+        <p>I'm a Data Engineer II at Cotiviti. I run the streaming systems that handle more than 5 million events a day, and the APIs that bring FHIR and HL7 clinical data into them.</p>
+        <p>Before that I built event-driven integrations at Highmark Health, and batch pipelines at Accenture. I have an M.S. in Computer Science from UMBC.</p>
       </div>
     </section>
 
-    <section class="wrap">
-      <div class="split">
-        <h2>Selected work</h2>
-        <div>
-          <ul class="entries">
-            <li>
-              <h3>Real-time streaming platform</h3>
-              <p>Spark Structured Streaming on Kafka, built to meet strict uptime and latency targets while processing more than 5 million events a day.</p>
-            </li>
-            <li>
-              <h3>Analytics data lake on AWS</h3>
-              <p>Parquet storage on S3 feeding Snowflake. Tuning partitioning, queries and caching improved analytics performance by 30% and cut latency by 25%.</p>
-            </li>
-            <li>
-              <h3>Healthcare event integration</h3>
-              <p>Kafka and Confluent Cloud pipelines with Spring Boot services that retry, recover and keep moving, handling more than a million messages in production.</p>
-            </li>
-          </ul>
-          <p class="more"><a href="projects.html">See all work</a></p>
-        </div>
-      </div>
+    <section class="col">
+      <h2>/ selected work</h2>
+      <ul class="candy">
+        <li>
+          <h3>Real-time streaming platform</h3>
+          <p>Spark Structured Streaming on Kafka, built to meet strict uptime and latency targets while processing more than 5 million events a day.</p>
+        </li>
+        <li>
+          <h3>Analytics data lake on AWS</h3>
+          <p>Parquet storage on S3 feeding Snowflake. Tuning partitioning, queries and caching improved analytics performance by 30% and cut latency by 25%.</p>
+        </li>
+        <li>
+          <h3>Healthcare event integration</h3>
+          <p>Kafka and Confluent Cloud pipelines with Spring Boot services that retry, recover and keep moving, handling more than a million messages in production.</p>
+        </li>
+      </ul>
     </section>
 
-    <section class="wrap">
-      <div class="split">
-        <h2>Where I've worked</h2>
-        <ol class="timeline">
-          <li>
-            <h3>Data Engineer II, Cotiviti</h3>
-            <p class="when">November 2024 to now</p>
-            <p>Streaming systems, FHIR and HL7 ingestion APIs, and the AWS data lake behind analytics. Services run in Docker on Kubernetes, which cut deployment time by 40%.</p>
-          </li>
-          <li>
-            <h3>Data Integration Engineer, Highmark Health</h3>
-            <p class="when">September 2022 to September 2024</p>
-            <p>ETL and ELT pipelines on Kafka and Spark, plus Java Spring Boot services. CI/CD automation shortened release cycles by 40%.</p>
-          </li>
-          <li>
-            <h3>Associate Software Engineer, Accenture</h3>
-            <p class="when">December 2020 to July 2021</p>
-            <p>Ab Initio pipelines for an enterprise data warehouse, with batch processing performance up 40%.</p>
-          </li>
-        </ol>
-      </div>
+    <section class="col">
+      <h2>/ where I've worked</h2>
+      <ol class="timeline">
+        <li>
+          <h3>Data Engineer II, Cotiviti</h3>
+          <p class="when">November 2024 to now</p>
+          <p>Streaming systems, FHIR and HL7 ingestion APIs, and the AWS data lake behind analytics. Services run in Docker on Kubernetes, which cut deployment time by 40%.</p>
+        </li>
+        <li>
+          <h3>Data Integration Engineer, Highmark Health</h3>
+          <p class="when">September 2022 to September 2024</p>
+          <p>ETL and ELT pipelines on Kafka and Spark, plus Java Spring Boot services. CI/CD automation shortened release cycles by 40%.</p>
+        </li>
+        <li>
+          <h3>Associate Software Engineer, Accenture</h3>
+          <p class="when">December 2020 to July 2021</p>
+          <p>Ab Initio pipelines for an enterprise data warehouse, with batch processing performance up 40%.</p>
+        </li>
+      </ol>
     </section>
 
-    <section class="wrap">
-      <div class="split">
-        <h2>Tools I use</h2>
-        <dl class="skills">
-          <dt>Languages</dt><dd>Python, Java, C and C++, SQL</dd>
-          <dt>Streaming and ETL</dt><dd>Kafka, Spark, Confluent Cloud, data modeling</dd>
-          <dt>Storage</dt><dd>S3 data lakes, Parquet, Snowflake, Oracle, MySQL</dd>
-          <dt>Cloud and delivery</dt><dd>AWS, GCP Pub/Sub, Docker, Kubernetes, CI/CD</dd>
-          <dt>Practice</dt><dd>Event-driven design, distributed systems, observability</dd>
-        </dl>
-      </div>
+    <section class="col">
+      <h2>/ tools I use</h2>
+      <ul class="candy compact">
+        <li><b>Languages</b> Python, Java, C and C++, SQL</li>
+        <li><b>Streaming and ETL</b> Kafka, Spark, Confluent Cloud, data modeling</li>
+        <li><b>Storage</b> S3 data lakes, Parquet, Snowflake, Oracle, MySQL</li>
+        <li><b>Cloud and delivery</b> AWS, GCP Pub/Sub, Docker, Kubernetes, CI/CD</li>
+        <li><b>Practice</b> Event-driven design, distributed systems, observability</li>
+      </ul>
     </section>
 
-    <section class="wrap">
-      <div class="split">
-        <h2>Get in touch</h2>
-        <div>
-          <p class="prose">I'm always glad to talk about data platforms, streaming systems or healthcare data.</p>
-          <p class="contact-links">
-            <a href="mailto:pragati.mynampati@gmail.com">pragati.mynampati@gmail.com</a>
-            <a href="https://github.com/pragati77">GitHub</a>
-          </p>
-        </div>
-      </div>
+    <section class="col">
+      <h2>/ say hi</h2>
+      <p>I'm always glad to talk about data platforms, streaming systems or healthcare data.</p>
+      <p class="contact">
+        <a href="mailto:pragati.mynampati@gmail.com">pragati.mynampati@gmail.com</a>
+        <a href="https://github.com/pragati77">GitHub</a>
+      </p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
-      <span>&copy; 2026 Pragati Mynampati</span>
-      <span>Dallas, Texas</span>
-    </div>
+    <div class="sprinkles" aria-hidden="true" style="margin-bottom:18px"></div>
+    &copy; 2026 Pragati Mynampati &middot; Dallas, Texas
   </footer>
 
   <script src="stream.js"></script>
