@@ -100,6 +100,19 @@ h2 {
 .prose p { margin: 0 0 1em; }
 .prose p:last-child { margin-bottom: 0; }
 
+/* the Cotiviti block: purple, corporate sans (stand-in until the exact brand font and purple are confirmed) */
+.work-now {
+  background: #5b2a8c;
+  color: #fff;
+  border-radius: 28px;
+  padding: 22px 26px;
+  font: 400 1rem/1.75 "Poppins", var(--text);
+  box-shadow: 0 8px 0 rgba(91, 42, 140, 0.18);
+}
+.work-now p { margin: 0 0 0.9em; }
+.work-now p:last-child { margin-bottom: 0; }
+.after-work { margin-top: 18px; }
+
 /* candy bullets */
 ul.candy, ol.timeline { list-style: none; margin: 0; padding: 0; }
 ul.candy > li { position: relative; padding: 0 0 20px 38px; }
