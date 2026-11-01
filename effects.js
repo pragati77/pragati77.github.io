@@ -1,6 +1,7 @@
 /* Two small effects: a candy "clink" when you hover a link, and sections that fade in as you scroll. */
 (function () {
   /* ---------- scroll reveal ---------- */
+  if (window.__revealGuard) clearTimeout(window.__revealGuard);
   var items = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
@@ -26,38 +27,49 @@
     return ctx;
   }
 
-  // One hard-candy hit: a bright glassy ping (a few inharmonic partials) plus a tiny noise tick.
-  function hit(c, when, base, volume) {
-    var partials = [[1, 1.0, 0.16], [2.76, 0.55, 0.09], [5.4, 0.3, 0.05]];
-    partials.forEach(function (p) {
-      var o = c.createOscillator(), g = c.createGain();
-      o.type = "sine";
-      o.frequency.value = base * p[0];
-      g.gain.setValueAtTime(0.0001, when);
-      g.gain.exponentialRampToValueAtTime(volume * p[1], when + 0.003);
-      g.gain.exponentialRampToValueAtTime(0.0001, when + p[2] + 0.05);
-      o.connect(g); g.connect(c.destination);
-      o.start(when); o.stop(when + p[2] + 0.08);
-    });
-    var len = Math.floor(c.sampleRate * 0.012), buf = c.createBuffer(1, len, c.sampleRate), d = buf.getChannelData(0);
-    for (var i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len);
-    var n = c.createBufferSource(), hp = c.createBiquadFilter(), ng = c.createGain();
-    n.buffer = buf; hp.type = "highpass"; hp.frequency.value = 4500;
-    ng.gain.value = volume * 0.7;
-    n.connect(hp); hp.connect(ng); ng.connect(c.destination);
-    n.start(when);
+  // A soft, creamy keyboard tap: a low rounded "thock" with a hush of noise, then a quieter key-up.
+  var master = null;
+  function getMaster(c) {
+    if (master) return master;
+    var lp = c.createBiquadFilter();               // rolls off the highs so nothing is sharp
+    lp.type = "lowpass"; lp.frequency.value = 2400; lp.Q.value = 0.4;
+    var g = c.createGain(); g.gain.value = 0.55;
+    lp.connect(g); g.connect(c.destination);
+    master = lp;
+    return master;
+  }
+
+  function thock(c, when, freq, volume, length) {
+    var out = getMaster(c);
+    var o = c.createOscillator(), g = c.createGain();
+    o.type = "sine";
+    o.frequency.setValueAtTime(freq * 1.7, when);
+    o.frequency.exponentialRampToValueAtTime(freq, when + 0.035);   // quick pitch drop gives the round "thock"
+    g.gain.setValueAtTime(0.0001, when);
+    g.gain.linearRampToValueAtTime(volume, when + 0.006);
+    g.gain.exponentialRampToValueAtTime(0.0001, when + length);
+    o.connect(g); g.connect(out);
+    o.start(when); o.stop(when + length + 0.02);
+
+    var n = Math.floor(c.sampleRate * 0.03), buf = c.createBuffer(1, n, c.sampleRate), d = buf.getChannelData(0);
+    for (var i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / n, 2);
+    var src = c.createBufferSource(), bp = c.createBiquadFilter(), ng = c.createGain();
+    src.buffer = buf; bp.type = "bandpass"; bp.frequency.value = 700; bp.Q.value = 0.7;
+    ng.gain.value = volume * 0.45;
+    src.connect(bp); bp.connect(ng); ng.connect(out);
+    src.start(when);
   }
 
   function clink() {
     if (!enabled) return;
     var now = performance.now();
-    if (now - lastPlay < 90) return;
+    if (now - lastPlay < 110) return;
     lastPlay = now;
     var c = getCtx();
     if (c.state !== "running") return;           // browsers keep audio locked until the first click or key press
-    var t = c.currentTime, base = 1500 + Math.random() * 500;
-    hit(c, t, base, 0.5);
-    hit(c, t + 0.05, base * 1.26, 0.38);          // the second candy
+    var t = c.currentTime, f = 175 + Math.random() * 45;
+    thock(c, t, f, 0.22, 0.11);                  // key down
+    thock(c, t + 0.075, f * 1.18, 0.09, 0.07);   // softer key up
   }
 
   // Browsers only allow sound after one click, tap or key press on the page. Hovering alone can't start audio.
