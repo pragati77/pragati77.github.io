@@ -32,8 +32,8 @@
   function getMaster(c) {
     if (master) return master;
     var lp = c.createBiquadFilter();               // rolls off the highs so nothing is sharp
-    lp.type = "lowpass"; lp.frequency.value = 2400; lp.Q.value = 0.4;
-    var g = c.createGain(); g.gain.value = 0.55;
+    lp.type = "lowpass"; lp.frequency.value = 4200; lp.Q.value = 0.4;
+    var g = c.createGain(); g.gain.value = 0.9;
     lp.connect(g); g.connect(c.destination);
     master = lp;
     return master;
@@ -43,7 +43,7 @@
     var out = getMaster(c);
     var o = c.createOscillator(), g = c.createGain();
     o.type = "sine";
-    o.frequency.setValueAtTime(freq * 1.7, when);
+    o.frequency.setValueAtTime(freq * 1.5, when);
     o.frequency.exponentialRampToValueAtTime(freq, when + 0.035);   // quick pitch drop gives the round "thock"
     g.gain.setValueAtTime(0.0001, when);
     g.gain.linearRampToValueAtTime(volume, when + 0.006);
@@ -54,8 +54,8 @@
     var n = Math.floor(c.sampleRate * 0.03), buf = c.createBuffer(1, n, c.sampleRate), d = buf.getChannelData(0);
     for (var i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / n, 2);
     var src = c.createBufferSource(), bp = c.createBiquadFilter(), ng = c.createGain();
-    src.buffer = buf; bp.type = "bandpass"; bp.frequency.value = 700; bp.Q.value = 0.7;
-    ng.gain.value = volume * 0.45;
+    src.buffer = buf; bp.type = "bandpass"; bp.frequency.value = 1500; bp.Q.value = 0.9;
+    ng.gain.value = volume * 0.8;
     src.connect(bp); bp.connect(ng); ng.connect(out);
     src.start(when);
   }
@@ -67,9 +67,9 @@
     lastPlay = now;
     var c = getCtx();
     if (c.state !== "running") return;           // browsers keep audio locked until the first click or key press
-    var t = c.currentTime, f = 175 + Math.random() * 45;
-    thock(c, t, f, 0.22, 0.11);                  // key down
-    thock(c, t + 0.075, f * 1.18, 0.09, 0.07);   // softer key up
+    var t = c.currentTime, f = 330 + Math.random() * 70;
+    thock(c, t, f, 0.34, 0.12);                  // key down
+    thock(c, t + 0.075, f * 1.18, 0.15, 0.08);   // softer key up
   }
 
   // Browsers only allow sound after one click, tap or key press on the page. Hovering alone can't start audio.
