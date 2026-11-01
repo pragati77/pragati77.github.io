@@ -1,4 +1,4 @@
-/* Two small effects: a candy "clink" when you hover a link, and sections that fade in as you scroll. */
+/* Two small effects: a soft "mint tick" when you hover a link, and sections that fade in as you scroll. */
 (function () {
   /* ---------- scroll reveal ---------- */
   if (window.__revealGuard) clearTimeout(window.__revealGuard);
@@ -27,49 +27,45 @@
     return ctx;
   }
 
-  // A soft, creamy keyboard tap: a low rounded "thock" with a hush of noise, then a quieter key-up.
+  // Mint tick: a tiny, dry tick, like a fingernail on a candy tin.
   var master = null;
   function getMaster(c) {
     if (master) return master;
-    var lp = c.createBiquadFilter();               // rolls off the highs so nothing is sharp
-    lp.type = "lowpass"; lp.frequency.value = 4200; lp.Q.value = 0.4;
-    var g = c.createGain(); g.gain.value = 0.9;
+    var lp = c.createBiquadFilter();
+    lp.type = "lowpass"; lp.frequency.value = 7000; lp.Q.value = 0.5;
+    var g = c.createGain(); g.gain.value = 0.8;
     lp.connect(g); g.connect(c.destination);
     master = lp;
     return master;
   }
 
-  function thock(c, when, freq, volume, length) {
+  function tick(c, when) {
     var out = getMaster(c);
-    var o = c.createOscillator(), g = c.createGain();
-    o.type = "sine";
-    o.frequency.setValueAtTime(freq * 1.5, when);
-    o.frequency.exponentialRampToValueAtTime(freq, when + 0.035);   // quick pitch drop gives the round "thock"
-    g.gain.setValueAtTime(0.0001, when);
-    g.gain.linearRampToValueAtTime(volume, when + 0.006);
-    g.gain.exponentialRampToValueAtTime(0.0001, when + length);
-    o.connect(g); g.connect(out);
-    o.start(when); o.stop(when + length + 0.02);
-
-    var n = Math.floor(c.sampleRate * 0.03), buf = c.createBuffer(1, n, c.sampleRate), d = buf.getChannelData(0);
+    var n = Math.floor(c.sampleRate * 0.01), buf = c.createBuffer(1, n, c.sampleRate), d = buf.getChannelData(0);
     for (var i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / n, 2);
-    var src = c.createBufferSource(), bp = c.createBiquadFilter(), ng = c.createGain();
-    src.buffer = buf; bp.type = "bandpass"; bp.frequency.value = 1500; bp.Q.value = 0.9;
-    ng.gain.value = volume * 0.8;
-    src.connect(bp); bp.connect(ng); ng.connect(out);
+    var src = c.createBufferSource(), hp = c.createBiquadFilter(), ng = c.createGain();
+    src.buffer = buf; hp.type = "highpass"; hp.frequency.value = 3000; hp.Q.value = 0.8;
+    ng.gain.value = 0.35;
+    src.connect(hp); hp.connect(ng); ng.connect(out);
     src.start(when);
+
+    var o = c.createOscillator(), g = c.createGain();
+    o.type = "sine"; o.frequency.value = 1700 + Math.random() * 200;
+    g.gain.setValueAtTime(0.0001, when);
+    g.gain.linearRampToValueAtTime(0.08, when + 0.001);
+    g.gain.exponentialRampToValueAtTime(0.0001, when + 0.02);
+    o.connect(g); g.connect(out);
+    o.start(when); o.stop(when + 0.05);
   }
 
   function clink() {
     if (!enabled) return;
     var now = performance.now();
-    if (now - lastPlay < 110) return;
+    if (now - lastPlay < 90) return;
     lastPlay = now;
     var c = getCtx();
     if (c.state !== "running") return;           // browsers keep audio locked until the first click or key press
-    var t = c.currentTime, f = 330 + Math.random() * 70;
-    thock(c, t, f, 0.34, 0.12);                  // key down
-    thock(c, t + 0.075, f * 1.18, 0.15, 0.08);   // softer key up
+    tick(c, c.currentTime + 0.005);
   }
 
   // Browsers only allow sound after one click, tap or key press on the page. Hovering alone can't start audio.

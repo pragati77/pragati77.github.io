@@ -241,3 +241,38 @@ ol.timeline .when { margin: 0 0 4px; font-size: 0.92rem; color: var(--berry-soft
 .sound-toggle:hover { background: var(--label); }
 .sound-toggle:focus-visible { outline: 3px solid var(--lavender); outline-offset: 3px; }
 @media (hover: none) { .sound-toggle { display: none; } }
+
+/* ---------- paintings: candy frames ---------- */
+.paint-intro { margin: -4px 0 18px; color: var(--berry-soft); }
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 22px; align-items: start; }
+.frame { margin: 0; }
+.frame.wide { grid-column: 1 / -1; }
+.frame .ring, .frame {
+  --c: var(--bubblegum);
+}
+.frame.f-pink { --c: #ff7ab0; }
+.frame.f-mint { --c: #5fd6a3; }
+.frame.f-lilac { --c: #b49cff; }
+.frame {
+  padding: 0;
+}
+.frame .mat {
+  padding: 10px;
+  background: #fff;
+  border: 12px solid transparent;
+  border-radius: 28px;
+  /* candy-cane stripe ring around a white mat */
+  background-image:
+    linear-gradient(#fff, #fff),
+    repeating-linear-gradient(45deg, var(--c) 0 12px, #fff 12px 24px);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 9px 0 rgba(255, 92, 157, 0.16);
+}
+.frame img { display: block; width: 100%; height: auto; border-radius: 12px; }
+.frame figcaption { margin-top: 16px; text-align: center; font: 600 1.02rem/1.3 var(--display); color: var(--berry); }
+@media (max-width: 520px) {
+  .gallery { grid-template-columns: 1fr; }
+  .frame.wide { grid-column: auto; }
+}
+.frame:not(.wide) img { aspect-ratio: 0.61; object-fit: cover; }
