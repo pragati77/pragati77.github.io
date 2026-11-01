@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Nunito:wght@400..800&family=Poppins:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.className += " js";</script>
 </head>
 <body>
   <header class="hero col">
@@ -25,7 +26,7 @@
   <div class="sprinkles" aria-hidden="true"></div>
 
   <main>
-    <section class="col">
+    <section class="col reveal">
       <h2>/ right now</h2>
       <div class="work-now">
         <p>I'm a Data Engineer II at Cotiviti. I run the streaming systems that handle more than 5 million events a day, and the APIs that bring FHIR and HL7 clinical data into them. I also look after the Drools rules engine, the heart of claims adjudication.</p>
@@ -36,7 +37,7 @@
       </div>
     </section>
 
-    <section class="col">
+    <section class="col reveal">
       <h2>/ projects</h2>
       <ul class="projects">
         <li class="project">
@@ -73,7 +74,7 @@
       <p class="more"><a href="https://github.com/pragati77">See all projects on GitHub</a></p>
     </section>
 
-    <section class="col">
+    <section class="col reveal">
       <h2>/ where I've worked</h2>
       <ol class="timeline">
         <li>
@@ -118,7 +119,7 @@
       </ol>
     </section>
 
-    <section class="col">
+    <section class="col reveal">
       <h2>/ tools I use</h2>
       <ul class="candy compact">
         <li><b>Languages</b> Python, Java, SQL, C and C++</li>
@@ -129,7 +130,7 @@
       </ul>
     </section>
 
-    <section class="col">
+    <section class="col reveal">
       <h2>/ say hi</h2>
       <p>I'm always glad to talk about data platforms, streaming systems or healthcare data.</p>
       <p class="contact">
@@ -144,6 +145,9 @@
     &copy; 2026 Pragati Mynampati &middot; Dallas, Texas
   </footer>
 
+  <button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="true">candy sound: on</button>
+
   <script src="stream.js"></script>
+  <script src="effects.js"></script>
 </body>
 </html>
