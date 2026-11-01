@@ -38,16 +38,36 @@
 
     <section class="col">
       <h2>/ projects</h2>
-      <ul class="candy projects">
-        <li>
-          <h3><a href="https://github.com/pragati77/cgrp-binder-prediction">CGRP binder prediction</a></h3>
-          <p>Chemistry transformers (ChemBERTa and MoLFormer) trained on about 900 ChEMBL compounds to rank molecules that might block the CGRP migraine receptor. With the six real gepant drugs hidden, the model still ranked five of them in the top 10% of 487 chemicals. Screening 495 approved drugs found no credible new candidate, and the write-up says so plainly.</p>
-          <p class="tags"><span>Python</span><span>ChemBERTa</span><span>MoLFormer</span><span>ChEMBL</span></p>
+      <ul class="projects">
+        <li class="project">
+          <div class="project-icon tint-pink"><svg viewBox="0 0 84 84" width="72" height="72" role="img" aria-label="A capsule and a round tablet">
+<g transform="rotate(-32 38 34)" stroke="#4e1536" stroke-width="2.4" stroke-linejoin="round">
+<path d="M22 22 h16 v24 h-16 a12 12 0 0 1 0 -24 z" fill="#ff7ab0"/>
+<path d="M38 22 h16 a12 12 0 0 1 0 24 h-16 z" fill="#fff8fb"/>
+<path d="M18 29 a7 7 0 0 1 5 -4" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".9"/>
+</g>
+<g stroke="#4e1536" stroke-width="2.4">
+<circle cx="62" cy="62" r="13" fill="#8fe3bd"/>
+<line x1="52" y1="62" x2="72" y2="62" stroke-linecap="round"/>
+</g>
+<path d="M54 55 a10 10 0 0 1 6 -4" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".9"/>
+<circle cx="14" cy="66" r="3" fill="#ffe27a" stroke="#4e1536" stroke-width="1.8"/><circle cx="72" cy="20" r="2.5" fill="#c9b3ff" stroke="#4e1536" stroke-width="1.8"/>
+</svg></div>
+          <div class="project-body">
+            <h3><a href="https://github.com/pragati77/cgrp-binder-prediction">CGRP binder prediction</a></h3>
+            <p>Chemistry transformers (ChemBERTa and MoLFormer) trained on about 900 ChEMBL compounds to rank molecules that might block the CGRP migraine receptor. With the six real gepant drugs hidden, the model still ranked five of them in the top 10% of 487 chemicals. Screening 495 approved drugs found no credible new candidate, and the write-up says so plainly.</p>
+            <p class="tags"><span>Python</span><span>ChemBERTa</span><span>MoLFormer</span><span>ChEMBL</span></p>
+            <a class="gh" href="https://github.com/pragati77/cgrp-binder-prediction" aria-label="View CGRP binder prediction on GitHub"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2.6"/><circle cx="6" cy="19" r="2.6"/><circle cx="18" cy="9" r="2.6"/><path d="M6 7.6v8.8M18 11.6c0 4-12 2-12 4.8"/></svg>GitHub</a>
+          </div>
         </li>
-        <li>
-          <h3><a href="https://github.com/pragati77/ESM2_Protein_Localization">Where does a protein live? ESM-2 localization</a></h3>
-          <p>Predicts which part of the cell a protein works in from its amino acid sequence, using frozen ESM-2 embeddings and logistic regression on the DeepLoc dataset. The 150M-parameter model reaches 73.3% accuracy on 1,000 held-out proteins, against 26.9% for always guessing the nucleus.</p>
-          <p class="tags"><span>Python</span><span>ESM-2</span><span>scikit-learn</span><span>DeepLoc</span></p>
+        <li class="project">
+          <div class="project-icon tint-lilac"><svg viewBox="0 0 84 84" width="72" height="72" role="img" aria-label="A chain of colorful beads, like a protein strand"><polyline points="9.0,42.0 18.4,57.5 27.8,60.0 37.2,47.5 46.6,30.4 56.0,23.0 65.4,31.5 74.8,48.8" fill="none" stroke="#4e1536" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.0" cy="42.0" r="6.5" fill="#ff7ab0" stroke="#4e1536" stroke-width="2.2"/><circle cx="7.0" cy="40.0" r="1.9" fill="#fff" opacity=".85"/><circle cx="18.4" cy="57.5" r="6.5" fill="#8fe3bd" stroke="#4e1536" stroke-width="2.2"/><circle cx="16.4" cy="55.5" r="1.9" fill="#fff" opacity=".85"/><circle cx="27.8" cy="60.0" r="6.5" fill="#ffe27a" stroke="#4e1536" stroke-width="2.2"/><circle cx="25.8" cy="58.0" r="1.9" fill="#fff" opacity=".85"/><circle cx="37.2" cy="47.5" r="6.5" fill="#c9b3ff" stroke="#4e1536" stroke-width="2.2"/><circle cx="35.2" cy="45.5" r="1.9" fill="#fff" opacity=".85"/><circle cx="46.6" cy="30.4" r="6.5" fill="#a9dcff" stroke="#4e1536" stroke-width="2.2"/><circle cx="44.6" cy="28.4" r="1.9" fill="#fff" opacity=".85"/><circle cx="56.0" cy="23.0" r="6.5" fill="#ff7ab0" stroke="#4e1536" stroke-width="2.2"/><circle cx="54.0" cy="21.0" r="1.9" fill="#fff" opacity=".85"/><circle cx="65.4" cy="31.5" r="6.5" fill="#8fe3bd" stroke="#4e1536" stroke-width="2.2"/><circle cx="63.4" cy="29.5" r="1.9" fill="#fff" opacity=".85"/><circle cx="74.8" cy="48.8" r="6.5" fill="#ffe27a" stroke="#4e1536" stroke-width="2.2"/><circle cx="72.8" cy="46.8" r="1.9" fill="#fff" opacity=".85"/></svg></div>
+          <div class="project-body">
+            <h3><a href="https://github.com/pragati77/ESM2_Protein_Localization">Where does a protein live? ESM-2 localization</a></h3>
+            <p>Predicts which part of the cell a protein works in from its amino acid sequence, using frozen ESM-2 embeddings and logistic regression on the DeepLoc dataset. The 150M-parameter model reaches 73.3% accuracy on 1,000 held-out proteins, against 26.9% for always guessing the nucleus.</p>
+            <p class="tags"><span>Python</span><span>ESM-2</span><span>scikit-learn</span><span>DeepLoc</span></p>
+            <a class="gh" href="https://github.com/pragati77/ESM2_Protein_Localization" aria-label="View ESM-2 protein localization on GitHub"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2.6"/><circle cx="6" cy="19" r="2.6"/><circle cx="18" cy="9" r="2.6"/><path d="M6 7.6v8.8M18 11.6c0 4-12 2-12 4.8"/></svg>GitHub</a>
+          </div>
         </li>
       </ul>
       <p class="more"><a href="https://github.com/pragati77">See all projects on GitHub</a></p>
