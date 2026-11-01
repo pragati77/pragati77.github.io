@@ -134,6 +134,18 @@ ul.candy > li:nth-child(4n+3), ol.timeline > li:nth-child(4n+3) { --candy: var(-
 ul.candy > li:nth-child(4n+4), ol.timeline > li:nth-child(4n+4) { --candy: var(--lavender); }
 ul.candy h3, ol.timeline h3 { margin: 0; font: 600 1.15rem/1.35 var(--display); }
 ul.candy p, ol.timeline p { margin: 2px 0 0; }
+ul.candy h3 a { color: var(--berry); text-decoration-color: var(--bubblegum); }
+ul.candy h3 a:hover { color: var(--label); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0 !important; }
+.tags span {
+  font: 600 0.8rem/1 var(--display);
+  padding: 5px 11px 6px;
+  border-radius: 999px;
+  background: #fff;
+  border: 2px solid var(--lavender);
+  color: var(--berry-soft);
+}
+.more { margin: 22px 0 0; font: 600 1.1rem/1.4 var(--display); }
 ul.candy.compact > li { padding-bottom: 8px; }
 ul.candy.compact b { font: 600 1.02rem/1 var(--display); margin-right: 4px; }
 
